@@ -1,0 +1,31 @@
+# Project: ccf201512
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__ -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__ -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = ccf20151201.o temp.o
+LINKOBJ  = ccf20151201.o temp.o
+LIBS     = -L"D:/Dev-Cpp/MinGW64/lib" -L"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -lobjc -g3 -nostdlib -mwindows -s
+INCS     = -I"D:/Dev-Cpp/MinGW64/include" -I"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Dev-Cpp/MinGW64/include" -I"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = ccf201512.exe
+CXXFLAGS = $(CXXINCS) -g3 -nostdlib -mwindows
+CFLAGS   = $(INCS) -g3 -nostdlib -mwindows
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+ccf20151201.o: ccf20151201.cpp
+	$(CPP) -c ccf20151201.cpp -o ccf20151201.o $(CXXFLAGS)
+
+temp.o: temp.cpp
+	$(CPP) -c temp.cpp -o temp.o $(CXXFLAGS)
